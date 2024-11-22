@@ -1,25 +1,29 @@
 import { Request, Response } from 'express';
 import { stationeryProductServices } from './product.service';
+import productValidationSchema from './product.validation';
 
 // Creating a product
 const createProduct = async (req: Request, res: Response) => {
   try {
     const productData = req.body;
 
+    // Schema validation use Zod
+    const dataValidationZod = productValidationSchema.parse(productData);
+
     const result =
       await stationeryProductServices.createStationeryProductIntoDB(
-        productData,
+        dataValidationZod,
       );
 
     res.status(201).json({
-      success: true,
       message: 'Product created successfully',
+      success: true,
       data: result,
     });
   } catch (error: any) {
     res.status(500).json({
-      success: false,
       message: 'Product created failed!',
+      success: false,
       errors: error.message || error,
     });
   }
@@ -31,14 +35,14 @@ const getAllStationeryProducts = async (req: Request, res: Response) => {
     const result = await stationeryProductServices.getAllProducts();
 
     res.status(201).json({
-      success: true,
       message: 'Products retrieved successfully',
+      success: true,
       data: result,
     });
   } catch (error: any) {
     res.status(500).json({
-      success: false,
       message: 'Product retrieved failed!',
+      success: false,
       errors: error.message || error,
     });
   }
@@ -52,14 +56,14 @@ const getSpecificProduct = async (req: Request, res: Response) => {
     const result = await stationeryProductServices.getSingleProduct(productId);
 
     res.status(201).json({
-      success: true,
       message: 'Products retrieved successfully',
+      success: true,
       data: result,
     });
   } catch (error: any) {
     res.status(500).json({
-      success: false,
       message: 'Product retrieved failed!',
+      success: false,
       errors: error.message || error,
     });
   }

@@ -16,7 +16,7 @@ const productValidationSchema = z.object({
     .number({
       required_error: 'Product price must be required',
     })
-    .max(0, { message: 'Price must be greater than or equal to 0' }),
+    .min(0, { message: 'Price must be greater than or equal to 0' }),
   category: z.enum(
     ['Writing', 'Office Supplies', 'Art Supplies', 'Educational', 'Technology'],
     { required_error: 'Category must be required' },

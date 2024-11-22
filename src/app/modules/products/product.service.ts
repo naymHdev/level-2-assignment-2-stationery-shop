@@ -7,16 +7,15 @@ const createStationeryProductIntoDB = async (product: IStationaryProduct) => {
   return result;
 };
 
-// Get all products
-
+// Get all products with optional search functional
 const getAllProducts = async () => {
   const result = await StationeryProductModel.find();
   return result;
 };
 
-// get products use id
+// get single products by id
 const getSingleProduct = async (id: string) => {
-  const result = await StationeryProductModel.findOne({ id });
+  const result = await StationeryProductModel.findOne({ _id: id });
   return result;
 };
 

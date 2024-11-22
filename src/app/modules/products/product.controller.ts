@@ -29,7 +29,7 @@ const createProduct = async (req: Request, res: Response) => {
   }
 };
 
-// Get All Stationery Products
+// Get All Stationery Products with query
 const getAllStationeryProducts = async (req: Request, res: Response) => {
   try {
     const result = await stationeryProductServices.getAllProducts();

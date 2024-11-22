@@ -3,7 +3,6 @@ import { IStationaryProduct } from './product.interface';
 
 const stationeryProductSchema = new Schema<IStationaryProduct>(
   {
-    id: { type: String, required: true, unique: true },
     name: {
       type: String,
       required: [true, 'Product name must be required!'],

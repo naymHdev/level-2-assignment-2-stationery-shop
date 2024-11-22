@@ -3,9 +3,6 @@ import { z } from 'zod';
 // Zod schema for core validations
 
 const productValidationSchema = z.object({
-  id: z.string({
-    required_error: 'ID is must be required',
-  }),
   name: z.string({
     required_error: 'Product name must be required',
   }),

@@ -1,6 +1,7 @@
 import { Model } from 'mongoose';
 
 export interface IStationaryProduct {
+  id: string;
   name: string;
   brand: string;
   price: number;
@@ -15,6 +16,7 @@ export interface IStationaryProduct {
   inStock: boolean;
 }
 
+// For creating static
 export interface IStationeryProductModel extends Model<IStationaryProduct> {
-  isUserExists(_id: string): Promise<IStationeryProductModel | null>;
+  isUserExists(id: string): Promise<IStationeryProductModel | null>;
 }

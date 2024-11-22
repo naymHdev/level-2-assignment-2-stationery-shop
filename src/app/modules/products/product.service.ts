@@ -19,9 +19,25 @@ const getSingleProduct = async (id: string) => {
   return result;
 };
 
+// Update id base single product
+
+const updateSpecificProduct = async (
+  id: string,
+  updatedProduct: Record<string, any>,
+) => {
+  const result = await StationeryProductModel.updateOne(
+    { _id: id },
+    {
+      $set: updatedProduct,
+    },
+  );
+  return result;
+};
+
 // create data into database and get products data from database
 export const stationeryProductServices = {
   createStationeryProductIntoDB,
   getAllProducts,
   getSingleProduct,
+  updateSpecificProduct,
 };

@@ -69,8 +69,34 @@ const getSpecificProduct = async (req: Request, res: Response) => {
   }
 };
 
+// update method
+const updateSingleProducts = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params;
+    const updatedProduct = req.body;
+
+    const result = await stationeryProductServices.updateSpecificProduct(
+      productId,
+      updatedProduct,
+    );
+
+    res.status(201).json({
+      message: 'Products updated successfully',
+      success: true,
+      data: result,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: 'Product updated failed!',
+      success: false,
+      errors: error.message || error,
+    });
+  }
+};
+
 export const ProductControllers = {
   createProduct,
   getAllStationeryProducts,
   getSpecificProduct,
+  updateSingleProducts,
 };

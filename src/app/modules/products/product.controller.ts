@@ -4,7 +4,7 @@ import { stationeryProductServices } from './product.service';
 // Creating a product
 const createProduct = async (req: Request, res: Response) => {
   try {
-    const { productData } = req.body;
+    const productData = req.body;
 
     const result =
       await stationeryProductServices.createStationeryProductIntoDB(
@@ -17,7 +17,6 @@ const createProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: any) {
-    console.log('err___.', error);
     res.status(500).json({
       success: false,
       message: 'Product created failed!',

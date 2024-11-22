@@ -9,8 +9,6 @@ app.use(cors());
 
 // ALl  Application routes
 app.use('/api/products', StationeryProductRoutes);
-app.use('/api/products', StationeryProductRoutes);
-app.use('/api/products', StationeryProductRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello dev!');

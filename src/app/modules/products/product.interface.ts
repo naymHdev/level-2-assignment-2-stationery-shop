@@ -1,4 +1,4 @@
-import { Model } from 'mongoose';
+
 
 export interface IStationaryProduct {
   id: string;
@@ -17,6 +17,6 @@ export interface IStationaryProduct {
 }
 
 // For creating static
-export interface IStationeryProductModel extends Model<IStationaryProduct> {
-  isProductExists(id: string): Promise<IStationaryProduct | null>;
-}
+// export interface IProductModel extends Model<IStationaryProduct> {
+//   isProductExists(id: string): Promise<IStationaryProduct>;
+// }

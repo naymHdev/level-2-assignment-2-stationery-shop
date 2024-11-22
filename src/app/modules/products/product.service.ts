@@ -2,13 +2,8 @@ import { IStationaryProduct } from './product.interface';
 import { StationeryProductModel } from './product.model';
 
 // create a product use static method
-const createStationeryProductIntoDB = async (
-  productData: IStationaryProduct,
-) => {
-  if (await StationeryProductModel.isProductExists(productData.id)) {
-    throw new Error('Same product already added');
-  }
-  const result = await StationeryProductModel.create(productData);
+const createStationeryProductIntoDB = async (product: IStationaryProduct) => {
+  const result = await StationeryProductModel.create(product);
   return result;
 };
 

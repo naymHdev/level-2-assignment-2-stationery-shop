@@ -18,5 +18,5 @@ export interface IStationaryProduct {
 
 // For creating static
 export interface IStationeryProductModel extends Model<IStationaryProduct> {
-  isUserExists(id: string): Promise<IStationeryProductModel | null>;
+  isProductExists(id: string): Promise<IStationaryProduct | null>;
 }

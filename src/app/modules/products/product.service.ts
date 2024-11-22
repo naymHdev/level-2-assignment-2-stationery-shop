@@ -5,7 +5,7 @@ import { StationeryProductModel } from './product.model';
 const createStationeryProductIntoDB = async (
   productData: IStationaryProduct,
 ) => {
-  if (await StationeryProductModel.isUserExists(productData.id)) {
+  if (await StationeryProductModel.isProductExists(productData.id)) {
     throw new Error('Same product already added');
   }
   const result = await StationeryProductModel.create(productData);

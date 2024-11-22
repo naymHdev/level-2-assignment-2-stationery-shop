@@ -20,7 +20,6 @@ const getSingleProduct = async (id: string) => {
 };
 
 // Update id base single product
-
 const updateSpecificProduct = async (
   id: string,
   updatedProduct: Record<string, any>,
@@ -34,10 +33,17 @@ const updateSpecificProduct = async (
   return result;
 };
 
+// Deleted specific product by id
+const deletedProduct = async (id: string) => {
+  const result = await StationeryProductModel.deleteOne({ _id: id });
+  return result;
+};
+
 // create data into database and get products data from database
 export const stationeryProductServices = {
   createStationeryProductIntoDB,
   getAllProducts,
   getSingleProduct,
   updateSpecificProduct,
+  deletedProduct,
 };

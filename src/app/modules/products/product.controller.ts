@@ -94,9 +94,30 @@ const updateSingleProducts = async (req: Request, res: Response) => {
   }
 };
 
+// Product deleted method
+const getDeleteProduct = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params;
+
+    const result = await stationeryProductServices.deletedProduct(productId);
+    res.status(200).json({
+      message: 'Product deleted successfully',
+      success: true,
+      data: result,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: 'Product deleted Failed!',
+      success: false,
+      errors: error.message || error,
+    });
+  }
+};
+
 export const ProductControllers = {
   createProduct,
   getAllStationeryProducts,
   getSpecificProduct,
   updateSingleProducts,
+  getDeleteProduct,
 };

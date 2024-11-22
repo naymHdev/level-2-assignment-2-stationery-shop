@@ -1,7 +1,7 @@
 import { IStationaryProduct } from './product.interface';
 import { StationeryProductModel } from './product.model';
 
-// create a product use static method
+// create a product
 const createStationeryProductIntoDB = async (product: IStationaryProduct) => {
   const result = await StationeryProductModel.create(product);
   return result;

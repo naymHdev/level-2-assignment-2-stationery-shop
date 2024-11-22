@@ -14,13 +14,14 @@ const createProduct = async (req: Request, res: Response) => {
       await stationeryProductServices.createStationeryProductIntoDB(
         dataValidationZod,
       );
-
     res.status(201).json({
       message: 'Product created successfully',
       success: true,
       data: result,
     });
   } catch (error: any) {
+    console.log('error__>>>--', error);
+
     res.status(500).json({
       message: 'Product created failed!',
       success: false,

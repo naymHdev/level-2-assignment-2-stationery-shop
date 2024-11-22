@@ -5,7 +5,7 @@ const stationeryProductSchema = new Schema<IStationaryProduct>(
   {
     name: {
       type: String,
-      required: [true, 'Product name must be required!'],
+      required: [true, 'ValidationError'],
       trim: true,
     },
     brand: {
@@ -15,7 +15,7 @@ const stationeryProductSchema = new Schema<IStationaryProduct>(
     },
     price: {
       type: Number,
-      required: true,
+      required: [true, 'Price must be a positive number'],
       min: 0,
     },
     category: {

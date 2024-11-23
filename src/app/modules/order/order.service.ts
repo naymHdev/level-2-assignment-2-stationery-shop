@@ -19,7 +19,7 @@ const createOrder = async (orderData: {
   }
 
   //   calculate total price
-  const totalPrice = productDoc.price * quantity;
+  const totalPrice = Math.round(productDoc.price * quantity);
 
   // create the order
   const newOrder = new OrderModel({
@@ -57,7 +57,7 @@ const calculateRevenue = async (): Promise<any> => {
     },
   ]);
 
-  const totalRevenue = result[0]?.totalRevenue || 0;
+  const totalRevenue = Math.round(result[0]?.totalRevenue || 0);
 
   return { totalRevenue };
 };

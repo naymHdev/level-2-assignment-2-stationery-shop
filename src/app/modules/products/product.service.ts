@@ -7,9 +7,19 @@ const createStationeryProductIntoDB = async (product: IStationaryProduct) => {
   return result;
 };
 
-// Get all products with optional search functional
-const getAllProducts = async () => {
-  const result = await StationeryProductModel.find();
+// Get all products with search functional
+const getAllProducts = async (searchTerm?: string) => {
+  const filter = searchTerm
+    ? {
+        $or: [
+          { name: { $regex: searchTerm, $options: 'i' } },
+          { brand: { $regex: searchTerm, $options: 'i' } },
+          { category: { $regex: searchTerm, $options: 'i' } },
+        ],
+      }
+    : {};
+
+  const result = await StationeryProductModel.find(filter);
   return result;
 };
 

@@ -33,7 +33,11 @@ const createProduct = async (req: Request, res: Response) => {
 // Get All Stationery Products with query
 const getAllStationeryProducts = async (req: Request, res: Response) => {
   try {
-    const result = await stationeryProductServices.getAllProducts();
+    const { searchTerm } = req.query;
+
+    const result = await stationeryProductServices.getAllProducts(
+      searchTerm as string,
+    );
 
     res.status(201).json({
       message: 'Products retrieved successfully',

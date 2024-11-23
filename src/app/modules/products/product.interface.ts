@@ -1,5 +1,4 @@
 export interface IStationaryProduct {
-  
   name: string;
   brand: string;
   price: number;

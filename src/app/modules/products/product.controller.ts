@@ -120,10 +120,19 @@ const getDeleteProduct = async (req: Request, res: Response) => {
     const { productId } = req.params;
 
     const result = await stationeryProductServices.deletedProduct(productId);
+
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        message: 'Product not found',
+        success: false,
+        data: {},
+      });
+    }
+
     res.status(200).json({
       message: 'Product deleted successfully',
       success: true,
-      data: result,
+      data: {},
     });
   } catch (error: any) {
     res.status(500).json({

@@ -1,4 +1,5 @@
-import mongoose, { Document, model, Schema } from 'mongoose';
+import mongoose, { Document, model } from 'mongoose';
+import { IStationaryProduct } from '../products/product.interface';
 
 //  Create a product order Interface
 interface IOrder extends Document {
@@ -9,7 +10,7 @@ interface IOrder extends Document {
 }
 
 //  Create a order Schema
-const OrderSchema: Schema = new Schema<IOrder>(
+const OrderSchema = new mongoose.Schema(
   {
     email: {
       type: String,
@@ -46,7 +47,7 @@ OrderSchema.pre('save', async function (next) {
   if (this.isModified('quantity') && this.isModified('product')) return next();
 
   const product = await mongoose
-    .model('StationeryProductModel')
+    .model<IStationaryProduct>('StationeryProductModel')
     .findById(this.product);
   if (!product) throw new Error('Product not found');
 

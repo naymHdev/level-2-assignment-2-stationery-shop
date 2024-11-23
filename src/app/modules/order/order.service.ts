@@ -18,7 +18,7 @@ const createOrder = async (orderData: {
     throw new Error('Insufficient stock for this product');
   }
 
-  //   calculate total price
+  // calculate total price
   const totalPrice = Math.round(productDoc.price * quantity);
 
   // create the order
@@ -29,10 +29,10 @@ const createOrder = async (orderData: {
     totalPrice,
   });
 
-  //   Save order in DB
+  //  Save order in DB
   await newOrder.save();
 
-  //   updated inventory
+  //  updated inventory
   productDoc.quantity -= quantity;
   productDoc.inStock = productDoc.quantity > 0;
   await productDoc.save();

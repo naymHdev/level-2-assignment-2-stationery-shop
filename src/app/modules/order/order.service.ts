@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import OrderModel from './order.schema';
 import { StationeryProductModel } from '../products/product.model';
 

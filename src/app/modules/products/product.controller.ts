@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from 'express';
 import { stationeryProductServices } from './product.service';
 import productValidationSchema from './product.validation';
@@ -20,12 +21,14 @@ const createProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: any) {
-    console.log('error__>>>--', error);
-
     res.status(500).json({
       message: 'Product created failed!',
       success: false,
-      errors: error.message || error,
+      errors: {
+        name: error.name,
+        errors: error.errors,
+      },
+      stack: error.stack,
     });
   }
 };
@@ -48,7 +51,11 @@ const getAllStationeryProducts = async (req: Request, res: Response) => {
     res.status(500).json({
       message: 'Product retrieved failed!',
       success: false,
-      errors: error.message || error,
+      errors: {
+        name: error.name,
+        errors: error.errors,
+      },
+      stack: error.stack,
     });
   }
 };
@@ -69,7 +76,11 @@ const getSpecificProduct = async (req: Request, res: Response) => {
     res.status(500).json({
       message: 'Product retrieved failed!',
       success: false,
-      errors: error.message || error,
+      errors: {
+        name: error.name,
+        errors: error.errors,
+      },
+      stack: error.stack,
     });
   }
 };
@@ -94,7 +105,11 @@ const updateSingleProducts = async (req: Request, res: Response) => {
     res.status(500).json({
       message: 'Product updated failed!',
       success: false,
-      errors: error.message || error,
+      errors: {
+        name: error.name,
+        errors: error.errors,
+      },
+      stack: error.stack,
     });
   }
 };
@@ -114,7 +129,11 @@ const getDeleteProduct = async (req: Request, res: Response) => {
     res.status(500).json({
       message: 'Product deleted Failed!',
       success: false,
-      errors: error.message || error,
+      errors: {
+        name: error.name,
+        errors: error.errors,
+      },
+      stack: error.stack,
     });
   }
 };

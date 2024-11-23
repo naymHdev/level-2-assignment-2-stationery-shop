@@ -12,8 +12,3 @@ export interface IStationaryProduct {
   quantity: number;
   inStock: boolean;
 }
-
-// For creating static
-// export interface IProductModel extends Model<IStationaryProduct> {
-//   isProductExists(id: string): Promise<IStationaryProduct>;
-// }

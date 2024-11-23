@@ -32,7 +32,7 @@ const getSingleProduct = async (id: string) => {
 // Update id base single product
 const updateSpecificProduct = async (
   id: string,
-  updatedProduct: Record<string, any>,
+  updatedProduct: Partial<IStationaryProduct>,
 ) => {
   const result = await StationeryProductModel.findByIdAndUpdate(
     { _id: id },

@@ -37,6 +37,7 @@ const OrderSchema: Schema = new Schema<IOrder>(
   },
   {
     timestamps: true,
+    versionKey: false,
   },
 );
 

@@ -47,6 +47,7 @@ const stationeryProductSchema = new Schema<IStationaryProduct>(
   },
   {
     timestamps: true,
+    versionKey: false,
   },
 );
 

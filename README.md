@@ -1,6 +1,5 @@
 Here is a professional **README.md** template for your project:
 
-````markdown
 # Level-2 Assignment-2: Stationery Shop
 
 ## Live Demo
@@ -66,7 +65,6 @@ Follow these instructions to set up the project locally:
    git clone https://github.com/naymHdev/level-2-assignment-2-stationery-shop.git
    cd level-2-assignment-2-stationery-shop
    ```
-````
 
 2. **Install dependencies**:
 
@@ -142,15 +140,11 @@ Here’s a brief overview of the folder structure:
 |-- README.md           # Project documentation
 ```
 
-
-
 ---
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
 
 ### Key Sections in the README:
 
@@ -163,4 +157,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 7. **License**: Specifies the license for the project.
 
 This template is well-structured for developers and users alike, making it clear how to set up and use your project.
-```

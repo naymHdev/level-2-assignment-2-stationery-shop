@@ -39,13 +39,19 @@ const createOrder = async (orderData: {
   return newOrder;
 };
 
+// Get all student data
+const getAllOrders = async () => {
+  const result = await OrderModel.find();
+  return result;
+};
+
 // Calculate Revenue from Orders
 const calculateRevenue = async (): Promise<any> => {
   const result = await OrderModel.aggregate([
     {
       $group: {
         _id: null,
-        totalRevenue: { $sum: 'totalPrice' },
+        totalRevenue: { $sum: '$totalPrice' },
       },
     },
   ]);
@@ -55,4 +61,4 @@ const calculateRevenue = async (): Promise<any> => {
   return { totalRevenue };
 };
 
-export const orderService = { createOrder, calculateRevenue };
+export const orderService = { createOrder, calculateRevenue, getAllOrders };

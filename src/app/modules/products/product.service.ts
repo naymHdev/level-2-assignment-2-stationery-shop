@@ -34,11 +34,12 @@ const updateSpecificProduct = async (
   id: string,
   updatedProduct: Record<string, any>,
 ) => {
-  const result = await StationeryProductModel.updateOne(
+  const result = await StationeryProductModel.findByIdAndUpdate(
     { _id: id },
     {
       $set: updatedProduct,
     },
+    { new: true, runValidators: true },
   );
   return result;
 };

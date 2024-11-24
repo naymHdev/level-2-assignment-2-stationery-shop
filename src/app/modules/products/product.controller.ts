@@ -121,14 +121,6 @@ const getDeleteProduct = async (req: Request, res: Response) => {
 
     await stationeryProductServices.deletedProduct(productId);
 
-    // if (result.deletedCount === 0) {
-    //   return res.status(404).json({
-    //     message: 'Product not found',
-    //     success: false,
-    //     data: {},
-    //   });
-    // }
-
     res.status(200).json({
       message: 'Product deleted successfully',
       success: true,
